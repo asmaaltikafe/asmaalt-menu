@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Asmaaltı Kafe | Dijital Menü</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
     
@@ -22,6 +23,7 @@
             padding: 0;
             color: #333;
             scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .hero {
@@ -31,19 +33,14 @@
             background-position: center;
             color: white;
             text-align: center;
-            padding: 100px 20px;
+            padding: 80px 20px;
         }
 
         .hero h1 {
             font-family: 'Poppins', sans-serif;
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin: 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin: 10px 0 0;
         }
 
         .category-nav {
@@ -51,32 +48,32 @@
             top: 0;
             background: var(--white);
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            justify-content: flex-start;
+            overflow-x: auto;
+            white-space: nowrap;
             gap: 10px;
             padding: 15px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
+            scrollbar-width: none;
         }
+
+        .category-nav::-webkit-scrollbar { display: none; }
 
         .category-nav a {
             text-decoration: none;
             color: var(--primary-green);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             padding: 8px 15px;
             border-radius: 20px;
             background: #eef5ee;
-            transition: background 0.3s;
-        }
-
-        .category-nav a:hover {
-            background: #d4e8d4;
+            transition: 0.3s;
         }
 
         .container {
             max-width: 600px;
-            margin: 30px auto;
+            margin: 20px auto;
             padding: 0 15px;
         }
 
@@ -85,23 +82,16 @@
             background-color: var(--white);
             border: 1px solid #e0e0e0;
             color: var(--primary-green);
-            padding: 20px;
-            font-size: 1.2rem;
+            padding: 18px;
+            font-size: 1.1rem;
             font-weight: 600;
-            text-align: left;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            border-radius: 16px;
+            border-radius: 12px;
             margin-top: 15px;
             box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-
-        .category-header:hover {
-            background-color: #f9fff9;
-            border-color: var(--primary-green);
         }
 
         .category-content {
@@ -110,86 +100,35 @@
             transition: max-height 0.4s ease-out;
         }
 
-        .arrow {
-            font-size: 0.8rem;
-            transition: transform 0.3s;
-            color: var(--accent-brown);
-        }
-
-        .active .arrow {
-            transform: rotate(180deg);
-        }
-
-        .active {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-            border-bottom: none;
-        }
-
         .menu-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
             background: var(--white);
-            padding: 15px;
-            border-bottom-left-radius: 16px;
-            border-bottom-right-radius: 16px;
+            padding: 10px 15px;
+            border-radius: 0 0 12px 12px;
             border: 1px solid #e0e0e0;
             border-top: none;
-            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-        }
-
-        .section-desc {
-            text-align: center;
-            font-style: italic;
-            color: #666;
-            font-size: 0.9rem;
-            margin: 5px 0 15px;
-            padding: 0 10px;
-            line-height: 1.4;
         }
 
         .menu-card {
-            padding: 15px;
+            padding: 12px 0;
             border-bottom: 1px solid #f5f5f5;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .menu-card:last-child {
-            border-bottom: none;
-        }
-
-        .menu-info h3 {
-            margin: 0;
-            font-size: 1.1rem;
-            color: var(--primary-green);
-        }
-
-        .menu-info p {
-            margin: 5px 0 0;
-            font-size: 0.85rem;
-            color: #888;
-        }
+        .menu-info h3 { margin: 0; font-size: 1rem; color: var(--primary-green); }
+        .menu-info p { margin: 3px 0 0; font-size: 0.8rem; color: #888; }
 
         .menu-price {
             font-weight: 700;
             color: var(--accent-brown);
             background: #fdf2e9;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 1rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            white-space: nowrap;
         }
 
-        footer {
-            text-align: center;
-            padding: 50px 20px;
-            background: #fff;
-            margin-top: 60px;
-            color: #888;
-            font-size: 0.9rem;
-        }
+        footer { text-align: center; padding: 40px 20px; color: #888; }
     </style>
 </head>
 <body>
@@ -201,65 +140,65 @@
 
     <nav class="category-nav">
         <a href="#kahve">☕ Kahveler</a> 
-        <a href="#soguk-kahve">🧊 Soğuklar</a>
+        <a href="#soguk-kahve">🧊 Soğuk Kahve</a>
         <a href="#sicak">🔥 Geleneksel</a>
-        <a href="#soguk-icecek">🥤 Soğuk İçecekler</a>
+        <a href="#bitki-caylari">🍵 Bitki Çayları</a>
+        <a href="#soguk-icecek">🥤 Soğuklar</a>
         <a href="#milkshake">🍦 Milkshake</a>
-        <a href="#Nescafe">☕︎ Nescafeler</a>
-        <a href="#Bitki çayları">🍵 Bitki çayları</a>
+        <a href="#nescafe">☕︎ Nescafe</a>
         <a href="#tatli">🍮 Tatlılar</a>
     </nav>
 
     <div class="container">
 
+        <!-- DÜNYA KAHVELERİ -->
         <section id="kahve">
             <div class="category-header" onclick="toggleCategory(this)">
                 <span>Dünya Kahveleri ☕</span>
-                <span class="arrow">▼</span>
+                <span>▼</span>
             </div>
             <div class="category-content">
                 <div class="menu-grid">
-                    <p class="section-desc">Özenle seçilmiş çekirdeklerden, her yudumda kalite.</p>
-                    <div class="menu-card"><div class="menu-info"><h3>Americano</h3><p>Espresso'nun sıcak su ile yumuşatılmış hali</p></div><div class="menu-price">120 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Caffè Latte</h3><p>Espresso ve buharda ısıtılmış yumuşak süt</p></div><div class="menu-price">120 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Caramel Latte</h3><p>Karamel şurubu ile tatlandırılmış sıcak lezzet</p></div><div class="menu-price">130 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Caffè Mocha</h3><p>Çikolata, espresso ve sütün uyumu</p></div><div class="menu-price">130 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Americano</h3></div><div class="menu-price">120 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Caffè Latte</h3></div><div class="menu-price">120 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Caramel Latte</h3></div><div class="menu-price">130 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Caffè Mocha</h3></div><div class="menu-price">130 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Cappuccino</h3></div><div class="menu-price">120 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Espresso</h3></div><div class="menu-price">100 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Flat White</h3></div><div class="menu-price">120 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>vanilya latte</h3></div><div class="menu-price">120 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Vanilya Latte</h3></div><div class="menu-price">120 ₺</div></div>
                 </div>
             </div>
         </section>
 
+        <!-- SOĞUK KAHVELER -->
         <section id="soguk-kahve">
             <div class="category-header" onclick="toggleCategory(this)">
                 <span>Soğuk Kahveler 🧊</span>
-                <span class="arrow">▼</span>
+                <span>▼</span>
             </div>
             <div class="category-content">
                 <div class="menu-grid">
-                    <p class="section-desc">Kahve tutkusunu buz gibi bir ferahlıkla yaşayın.</p>
                     <div class="menu-card"><div class="menu-info"><h3>Iced Americano</h3></div><div class="menu-price">130 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Iced Latte</h3></div><div class="menu-price">130 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Iced Caramel Latte</h3></div><div class="menu-price">130 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Iced Mocha</h3></div><div class="menu-price">140 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Cold Brew</h3></div><div class="menu-price">120 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Iced vanilya latte</h3></div><div class="menu-price">130 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Iced Vanilya Latte</h3></div><div class="menu-price">130 ₺</div></div>
                 </div>
             </div>
         </section>
 
+        <!-- GELENEKSEL SICAKLAR -->
         <section id="sicak">
             <div class="category-header" onclick="toggleCategory(this)">
                 <span>Geleneksel Sıcaklar 🔥</span>
-                <span class="arrow">▼</span>
+                <span>▼</span>
             </div>
             <div class="category-content">
                 <div class="menu-grid">
-                    <p class="section-desc">Demli bir çaydan köpüklü bir kahveye, her yudum huzur.</p>
                     <div class="menu-card"><div class="menu-info"><h3>Türk Kahvesi</h3></div><div class="menu-price">100 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Cilveli kahve</h3></div><div class="menu-price">150 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Cilveli Kahve</h3></div><div class="menu-price">150 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Dibek Kahvesi</h3></div><div class="menu-price">100 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Menengiç Kahvesi</h3></div><div class="menu-price">100 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Salep</h3></div><div class="menu-price">150 ₺</div></div>
@@ -269,60 +208,60 @@
             </div>
         </section>
 
-        <section id="Bitki çayları">
+        <!-- BİTKİ ÇAYLARI -->
+        <section id="bitki-caylari">
             <div class="category-header" onclick="toggleCategory(this)">
-                <span>Bitki çayları 🍵</span>
-                <span class="arrow">▼</span>
+                <span>Bitki Çayları 🍵</span>
+                <span>▼</span>
             </div>
             <div class="category-content">
                 <div class="menu-grid">
-                    <p class="section-desc">Günün yorgunluğunu alan bitkisel dokunuş.</p>
-                    <div class="menu-card"><div class="menu-info"><h3>Ada çayı</h3><p></p></div><div class="menu-price">50 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Ihlamur</h3><p></p></div><div class="menu-price">50 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Tarçın</h3><p></p></div><div class="menu-price">50 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Hibisküs</h3><p></p></div><div class="menu-price">50 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Papatya çayı</h3></div><div class="menu-price">50 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Melisa çayı</h3></div><div class="menu-price">50 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Kuş burnu</h3></div><div class="menu-price">50 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Zeyno'nun Bitki çayı</h3></div><div class="menu-price">100 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Ada Çayı</h3></div><div class="menu-price">50 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Ihlamur</h3></div><div class="menu-price">50 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Tarçın</h3></div><div class="menu-price">50 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Hibisküs</h3></div><div class="menu-price">50 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Papatya Çayı</h3></div><div class="menu-price">50 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Melisa Çayı</h3></div><div class="menu-price">50 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Kuş Burnu</h3></div><div class="menu-price">50 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Zeyno'nun Bitki Çayı</h3></div><div class="menu-price">100 ₺</div></div>
                 </div>
             </div>
         </section>
 
+        <!-- SOĞUK İÇECEKLER -->
         <section id="soguk-icecek">
             <div class="category-header" onclick="toggleCategory(this)">
                 <span>Soğuk İçecekler 🥤</span>
-                <span class="arrow">▼</span>
+                <span>▼</span>
             </div>
             <div class="category-content">
                 <div class="menu-grid">
-                    <p class="section-desc">Meyveli, asitli veya doğal; ferahlatıcı seçenekler.</p>
                     <div class="menu-card"><div class="menu-info"><h3>Ev Yapımı Limonata 🍋</h3></div><div class="menu-price">70 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>churchill</h3></div><div class="menu-price">60 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>cool lime</h3></div><div class="menu-price">120 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Churchill</h3></div><div class="menu-price">60 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Cool Lime</h3></div><div class="menu-price">120 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Kola (Coca-Cola)</h3></div><div class="menu-price">80 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Soğuk salep</h3></div><div class="menu-price">180 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Soğuk Salep</h3></div><div class="menu-price">180 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Fanta / Sprite</h3></div><div class="menu-price">80 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Fuse Tea (Şeftali/Karpuz/Mango)</h3></div><div class="menu-price">80 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Sade Soda</h3></div><div class="menu-price">30 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Meyveli Soda</h3><p>Elma, Limon, Karpuz çilek, Ananas,orman meyveli</p></div><div class="menu-price">40 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Meyveli Soda</h3><p>Elma, Limon, Çilek, Ananas</p></div><div class="menu-price">40 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Cappy Meyve Suyu</h3></div><div class="menu-price">75 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Atom</h3></div><div class="menu-price">100 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Şişe Kola (Coca-Cola)</h3></div><div class="menu-price">50 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Meysu şeftali</h3></div><div class="menu-price">50 ₺</div></div>
-                    <div class="menu-card"><div class="menu-info"><h3>Niğde gazoz</h3></div><div class="menu-price">50 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Şişe Kola</h3></div><div class="menu-price">50 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Meysu Şeftali</h3></div><div class="menu-price">50 ₺</div></div>
+                    <div class="menu-card"><div class="menu-info"><h3>Niğde Gazozu</h3></div><div class="menu-price">50 ₺</div></div>
                 </div>
             </div>
         </section>
 
+        <!-- MILKSHAKE -->
         <section id="milkshake">
             <div class="category-header" onclick="toggleCategory(this)">
                 <span>Milkshake Çeşitleri 🍦</span>
-                <span class="arrow">▼</span>
+                <span>▼</span>
             </div>
             <div class="category-content">
                 <div class="menu-grid">
-                    <p class="section-desc">Süt ve dondurmanın en tatlı, en yoğun buluşması.</p>
                     <div class="menu-card"><div class="menu-info"><h3>Vanilyalı Milkshake</h3></div><div class="menu-price">-- ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Çilekli Milkshake</h3></div><div class="menu-price">-- ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Muzlu Milkshake</h3></div><div class="menu-price">-- ₺</div></div>
@@ -331,14 +270,14 @@
             </div>
         </section>
 
-        <section id="Nescafe">
+        <!-- NESCAFE -->
+        <section id="nescafe">
             <div class="category-header" onclick="toggleCategory(this)">
                 <span>Nescafelerimiz ☕</span>
-                <span class="arrow">▼</span>
+                <span>▼</span>
             </div>
             <div class="category-content">
                 <div class="menu-grid">
-                    <p class="section-desc">Klasik ve pratik bir kahve molası için.</p>
                     <div class="menu-card"><div class="menu-info"><h3>Nescafe 3ü 1 arada</h3></div><div class="menu-price">50 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Nescafe 2si 1 arada</h3></div><div class="menu-price">50 ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Sade Nescafe</h3></div><div class="menu-price">50 ₺</div></div>
@@ -346,14 +285,14 @@
             </div>
         </section>
 
+        <!-- TATLILAR -->
         <section id="tatli">
             <div class="category-header" onclick="toggleCategory(this)">
                 <span>Sütlü Tatlılar 🍮</span>
-                <span class="arrow">▼</span>
+                <span>▼</span>
             </div>
             <div class="category-content">
                 <div class="menu-grid">
-                    <p class="section-desc">Özenle hazırlanan günlük ve taze tatlılarımız.</p>
                     <div class="menu-card"><div class="menu-info"><h3>Fırın Sütlaç</h3></div><div class="menu-price">-- ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Triliçe</h3></div><div class="menu-price">-- ₺</div></div>
                     <div class="menu-card"><div class="menu-info"><h3>Magnolya</h3></div><div class="menu-price">-- ₺</div></div>
@@ -362,42 +301,65 @@
             </div>
         </section>
 
-    </div>
-    <div style="background: var(--white); margin: 40px auto; padding: 30px 20px; border-radius: 20px; max-width: 560px; text-align: center; box-shadow: var(--shadow); border: 1px solid #eef5ee;">
-        <h3 style="color: var(--primary-green); margin-top: 0; font-family: 'Poppins', sans-serif;">Bizimle Kutlayın 🌿</h3>
-        <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
-            Doğum günleri, özel toplantılar ve tüm kutlamalarınız için kafe alanımızı temin edebilirsiniz. 
-            Siz sadece anın tadını çıkarın, gerisini biz halledelim!
-        </p>
-        <div style="display: inline-block; background: #fdf2e9; padding: 10px 20px; border-radius: 50px; border: 1px solid var(--accent-brown);">
-            <a href="https://instagram.com/asmaaltikafeee" target="_blank" style="text-decoration: none; color: var(--accent-brown); font-weight: 700; display: flex; align-items: center; gap: 8px;">
-                <span>📸 @asmaaltikafeee</span>
-            </a>
+        <!-- INSTAGRAM & REZERVASYON -->
+        <div style="background: var(--white); margin: 30px 0; padding: 25px; border-radius: 15px; text-align: center; box-shadow: var(--shadow); border: 1px solid #eef5ee;">
+            <h3 style="color: var(--primary-green); margin-top: 0;">Bizimle Kutlayın 🌿</h3>
+            <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">Özel günleriniz için bizimle iletişime geçin.</p>
+            <div style="display: inline-block; background: #fdf2e9; padding: 12px 24px; border-radius: 50px; border: 1px solid var(--accent-brown);">
+                <a href="https://www.instagram.com/asmaaltikafee?igsh=bmZoOG5oam0xcXBs" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   id="insta-link"
+                   style="text-decoration: none; color: var(--accent-brown); font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                    <span>📸 @asmaaltikafee</span>
+                </a>
+            </div>
         </div>
-        <p style="font-size: 0.85rem; color: #888; margin-top: 15px;">Detaylı bilgi ve rezervasyon için DM üzerinden bize ulaşabilirsiniz.</p>
     </div>
-
-    <footer>
-        <p>© 2026 Asmaaltı Kafe - Manisa</p>
-        <p style="font-size: 0.75rem; margin-top: 5px; opacity: 0.7;">Lezzet ve huzurun buluşma noktası.</p>
-    </footer>
 
     <footer>
         <p>© 2026 Asmaaltı Kafe - Manisa</p>
     </footer>
 
     <script>
+        // TAKİP SİSTEMİ (LOGGING SYSTEM)
+        function logUserAction(action, detail) {
+            const now = new Date();
+            const timeStr = now.getHours().toString().padStart(2, '0') + ":" + 
+                           now.getMinutes().toString().padStart(2, '0') + ":" + 
+                           now.getSeconds().toString().padStart(2, '0');
+            
+            console.log(`%c[ASMALTI-TAKİP] %c${timeStr} %c| Eylem: ${action} | Detay: ${detail}`, 
+                "color: #2d5a27; font-weight: bold; background: #eef5ee; padding: 2px 5px; border-radius: 3px;", 
+                "color: #5d4037; font-weight: bold;", 
+                "color: #333;");
+        }
+
         function toggleCategory(button) {
+            const categoryName = button.querySelector('span').innerText;
+            
+            // Konsola tıklamayı yazdır
+            logUserAction("Kategori Tıklama", categoryName);
+
             button.classList.toggle("active");
             var content = button.nextElementSibling;
             if (content.style.maxHeight) {
                 content.style.maxHeight = null;
             } else {
-                // İçerik boyutuna göre dinamik açılma
                 content.style.maxHeight = content.scrollHeight + 50 + "px";
             }
         }
-    </script>
 
+        // Instagram tıklama takibi
+        const instaElement = document.getElementById('insta-link');
+        if(instaElement) {
+            instaElement.addEventListener('click', function() {
+                logUserAction("Dış Bağlantı", "Instagram Profiline Gidildi");
+            });
+        }
+
+        // Sayfa açılış takibi
+        window.onload = () => logUserAction("Sistem", "Menü Başarıyla Yüklendi");
+    </script>
 </body>
 </html>
